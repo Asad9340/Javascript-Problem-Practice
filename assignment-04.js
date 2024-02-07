@@ -1,7 +1,7 @@
 // problem 1
 function calculateMoney(ticketSale) {
   if (ticketSale < 0) {
-    return "The number of ticket selling cann't be negative";
+    return 'The number of ticket selling can not be negative';
   } else {
     let totalSellAmount = ticketSale * 120;
     let totalCost = 500 + 8 * 50;
@@ -37,7 +37,7 @@ function checkName(name) {
     }
   }
 }
-// console.log(checkName('Salman'));
+// console.log(checkName("Salman"));
 // console.log(checkName('RAFEE'));
 // console.log(checkName('Jhankar'));
 // console.log(checkName(199));
@@ -59,7 +59,7 @@ function deleteInvalids(val) {
   }
 }
 
-// console.log(deleteInvalids([
+//  console.log(deleteInvalids([
 //   1,
 //   null,
 //   undefined,
@@ -73,23 +73,23 @@ function deleteInvalids(val) {
 // console.log(deleteInvalids(['1', { num: 2 }, NaN]));
 // console.log(deleteInvalids([1, 2, -3]));
 // console.log(deleteInvalids({ num: [1, 2, 3] }));
+// console.log(deleteInvalids([NaN, 1, 12, 0, -1, undefined]));
 
 // problem 4
 
 function password(obj) {
-  let x = Object.hasOwn(obj, 'name');
-  let y = Object.hasOwn(obj, 'birthYear');
-  let z = Object.hasOwn(obj, 'siteName');
-  if (
-    x == true &&
-    y == true &&
-    z == true &&
-    obj.birthYear.toString().length >= 4
-  ) {
-    let password = `${
-      obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1)
-    }#${obj.name}@${obj.birthYear}`;
-    return password;
+  let x = obj.hasOwnProperty('name');
+  let y = obj.hasOwnProperty('birthYear');
+  let z = obj.hasOwnProperty('siteName');
+  if (x == true && y == true && z == true) {
+    if (obj.birthYear.toString().length >= 4) {
+      let password = `${
+        obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1)
+      }#${obj.name}@${obj.birthYear}`;
+      return password;
+    } else {
+      return 'Invalid';
+    }
   } else {
     return 'Invalid';
   }
@@ -110,9 +110,9 @@ function monthlySavings(arr, livingCost) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] >= 3000) {
         let newBalance = 3000 - arr[i] * (20 / 100);
-        totalSalary = totalSalary + newBalance;
+        totalSalary += newBalance;
       } else {
-        totalSalary = totalSalary + arr[i];
+        totalSalary += arr[i];
       }
     }
     let totalSavings = totalSalary - livingCost;
